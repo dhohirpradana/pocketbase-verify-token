@@ -8,11 +8,10 @@ const port = 3000;
 
 const pocketBaseUrl = process.env.POCKETBASE_URL;
 if (!pocketBaseUrl) {
-    console.error('Invalid or missing POCKETBASE_URL environment variable.');
+    console.error('Missing POCKETBASE_URL environment variable.');
     process.exit(1); // Exit the application
 }
 const pb = new PocketBase(pocketBaseUrl);
-
 
 app.use(express.json());
 
