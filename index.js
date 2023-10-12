@@ -31,7 +31,8 @@ app.get('/verify-token', requireAuthorization, async (req, res) => {
     try {
         const authData = await pb.collection('users').authRefresh();
         const serializedAuthData = JSON.stringify(authData);
-        res.json({ message: `Authorized. authData: ${serializedAuthData}` });
+        console.log(serializedAuthData);
+        res.json({...authData['record']});
     } catch (error) {
         res.status(401).json({ error: error });
     }
